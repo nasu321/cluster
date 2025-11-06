@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Wholesale Customers Clustering</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧩 Wholesale Customers Clustering System</h1>
+        <form action="{{ url_for('cluster') }}" method="post">
+            <label for="algorithm">Choose Algorithm:</label>
+            <select name="algorithm" id="algorithm" required>
+                <option value="kmeans">K-Means</option>
+                <option value="dbscan">DBSCAN</option>
+                <option value="gmm">Gaussian Mixture Model (GMM)</option>
+                <option value="agg">Agglomerative Clustering</option>
+            </select>
+
+            <label for="n_clusters">Number of Clusters:</label>
+            <input type="number" name="n_clusters" id="n_clusters" value="3" min="2" max="10">
+
+            <button type="submit">Run Clustering</button>
+        </form>
+
+        {% if prediction %}
+            <h2>{{ prediction }}</h2>
+        {% endif %}
+
+        {% if summary %}
+            <h3>Cluster Distribution:</h3>
+            <ul>
+                {% for key, val in summary.items() %}
+                    <li>Cluster {{ key }} → {{ val }} samples</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
