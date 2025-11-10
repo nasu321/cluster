@@ -60,6 +60,7 @@ Cluster Distribution Visualization
 | **Web Framework**        | Flask                                   |
 | **Frontend**             | HTML5, CSS3                             |
 | **Dataset**              | Wholesale customers data_clustering.csv |
+
 ## output
 
-<img src="House_price/static/images/house_ui.png" width="700">
+<img src="cluster/Screenshot 2025-11-10 175342.png" width="700">
